@@ -6,7 +6,7 @@ def presigned_s3_url(bucket, key, expiration):
 #    Usage:
 #        python generatePreSignedUrl.py anS3Bucket Key -e 28800
 #        python generatePreSignedUrl.py anS3Bucket Key - default exp= 1 hour 
-# key - is the name of file 
+# key - is the name of file in S3
     params = {
         'Bucket': bucket,
         'Key': key
