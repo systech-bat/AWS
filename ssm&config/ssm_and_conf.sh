@@ -34,3 +34,13 @@ aws iam put-role-policy --role-name "SSM02" \
 }'
 
 echo $iamRoleArn
+
+
+aws configservice put-config-rule --config-rule '{
+  "ConfigRuleName": "approved-amis-by-id",
+  "Source": {
+    "Owner": "AWS",
+    "SourceIdentifier": "APPROVED_AMIS_BY_ID"
+  },
+  "InputParameters": "{\"amiIds\":\"ami-0e872aee57663ae2d\"}"
+}'
