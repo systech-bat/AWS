@@ -44,3 +44,6 @@ aws configservice put-config-rule --config-rule '{
   },
   "InputParameters": "{\"amiIds\":\"ami-0e872aee57663ae2d\"}"
 }'
+
+
+aws configservice put-remediation-configurations --cli-input-json file://remediation_rule.json

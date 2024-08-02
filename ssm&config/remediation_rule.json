@@ -1,0 +1,34 @@
+{
+  "RemediationConfigurations": [
+    {
+      "ConfigRuleName": "approved-amis-by-id",
+      "TargetType": "SSM_DOCUMENT",
+      "TargetId": "AWS-StopEC2Instance",
+      "TargetVersion": "1",
+      "Parameters": {
+        "InstanceId": {
+          "ResourceValue": {
+            "Value": "RESOURCE_ID"
+          }
+        },
+        "AutomationAssumeRole": {
+          "StaticValue": {
+            "Values": [
+              "arn:aws:iam::562464429819:role/SSM02"
+            ]
+          }
+        }
+      },
+      "ResourceType": "AWS::EC2::Instance",
+      "Automatic": true,
+      "ExecutionControls": {
+        "SsmControls": {
+          "ConcurrentExecutionRatePercentage": 100,
+          "ErrorPercentage": 1
+        }
+      },
+      "MaximumAutomaticAttempts": 3,
+      "RetryAttemptSeconds": 60
+    }
+  ]
+}
